@@ -1,0 +1,12 @@
+Django==3.0.5
+djangorestframework==3.11.1
+drf_spectacular
+python-dotenv==0.14.0
+django-filter==2.4.0
+pyotp
+django-redis==5.0.0
+django-rediscache==1.0.5
+redis
+redis-cli
+pytz==2020.1
+PyJWT==2.0.1
