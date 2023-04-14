@@ -17,7 +17,7 @@ class PersonInfoSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         try:
-            phone_number=validated_data.pop('phone_number')
+            phone_number = validated_data.pop('phone_number')
             get_phone_query = PhoneNumberCheck.objects.get(phone_number=phone_number)
             if get_phone_query.registration_status:
                 raise serializers.ValidationError({'message': _('this phone number was registered in the past')},

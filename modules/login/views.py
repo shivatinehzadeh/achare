@@ -39,8 +39,8 @@ class LoginViewSet(GenericViewSet):
                                 f"This phone number is lock until {get_user_query.phone_register.lock_until.strftime('%H:%M:%S')}")
                         },
                         status=status.HTTP_423_LOCKED)
-            if not check_password(password,get_user_query.password):
-                wrong_data_function(query=get_user_query.phone_register, request=request, user_ip_wrong=True)
+            if not check_password(password, get_user_query.password):
+                wrong_data_function(query=get_user_query.phone_register, request=request, password_wrong=True)
                 raise ValidationError({'invalid': _("phone number or password is not valid")},
                                       code=status.HTTP_400_BAD_REQUEST)
             else:
@@ -50,7 +50,7 @@ class LoginViewSet(GenericViewSet):
                 get_user_query.phone_register.user_ip_wrong_count = None
                 get_user_query.phone_register.save()
                 token = generate_token(get_user_query.id, settings.SECRET_KEY)
-                return Response({'access_token':token}, status=status.HTTP_200_OK)
+                return Response({'access_token': token}, status=status.HTTP_200_OK)
 
         except UserAccount.DoesNotExist:
             # wrong_data_function(query=get_user_query.phone_register, request=request, user_ip_wrong=True)

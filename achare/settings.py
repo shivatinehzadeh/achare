@@ -42,7 +42,8 @@ PROJECT_APP = ["base"]
 
 THIRD_PARTY_APP = [
     "rest_framework",
-    "drf_spectacular"
+    "drf_spectacular",
+    "django_extensions"
 ]
 
 INSTALLED_APPS = DJANGO_APP + PROJECT_APP + THIRD_PARTY_APP
@@ -140,6 +141,18 @@ REST_FRAMEWORK = {
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.AcceptHeaderVersioning",
 }
 
+
+SPECTACULAR_SETTINGS = {
+    'COMPONENT_SPLIT_REQUEST': True,
+    "TITLE": "ACHARE",
+    "DESCRIPTION": '',
+    "VERSION": "1402.01.24",
+    'SERVE_INCLUDE_SCHEMA': False,
+
+    "SWAGGER_UI_SETTINGS": {
+        "docExpansion": "none",
+    },
+}
 REDIS_SERVER_IP = os.getenv("REDIS_SERVER_IP")
 
 CACHES = {
