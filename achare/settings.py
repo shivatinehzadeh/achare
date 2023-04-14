@@ -43,10 +43,9 @@ PROJECT_APP = ["base"]
 THIRD_PARTY_APP = [
     "rest_framework",
     "drf_spectacular",
-    "django_extensions"
 ]
 
-INSTALLED_APPS = DJANGO_APP + PROJECT_APP + THIRD_PARTY_APP
+INSTALLED_APPS = DJANGO_APP+ PROJECT_APP + THIRD_PARTY_APP
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
